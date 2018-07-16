@@ -29,7 +29,14 @@ public class LIsterPartieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Partie> listes =service.listerPartieNonDemarees();
         req.setAttribute("liste", listes );
-        req.getRequestDispatcher("/lister-Partie.jsp").forward(req, resp);
+        req.getRequestDispatcher("lister-Partie.jsp").forward(req, resp);
+   
+        
     }
+
+       
+        
+        
+        
 
 }

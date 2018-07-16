@@ -27,13 +27,15 @@
             </div>
         </header>
         <div class="main">
-            <a href="creerPartie.html"><button class="btnCreeP">Créer partie</button></a>
+            <a href="<c:url value="CreerPartie"></c:url>"><button class="btnCreeP">Créer partie</button></a>
             <ul class="listePartie">
                 <c:forEach items="${liste}" var="partie">
                     <li class="partie">
                         <h3>${partie.nom}</h3>
                         <p>${partie.joueurs.size()}</p>
-                        <a href="rejoindrePartie.html"><button class="btnCree">Rejoindre</button></a>
+                        <a href="<c:url value="rejoindre-partie"></c:url>">
+                            <button class="btnCree" name="rejoindrePartie" value="${partie.id}">Rejoindre</button>
+                        </a>
 
                     </li>
                 </c:forEach>

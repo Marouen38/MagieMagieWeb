@@ -4,6 +4,7 @@
     Author     : Administrateur
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,14 +15,15 @@
     </head>
     <body>
         <h1>formulaire d'inscription</h1>
-        <form method="post">
+        <form method="post" action="<c:url value="CreationDeCompte"></c:url>">
   <div class="form-group">
     <label for="exampleFormControlFile1">choisir votre pseudo</label>
-    <input type="text" class="form-control-file" name='pseusdo' id="exampleFormControlFile1">
+    <input type="text" class="form-control-file" name='pseudo' id="exampleFormControlFile1">
   </div>
            <div class="form-group">
     <label for="exampleFormControlFile1">choisir votre avatar</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    <img>
+    <input type="radio" class="form-control-file" id="exampleFormControlFile1" name="avatar" value="soriciere1">
   </div>
 
         <button type="submit" class="btn btn-primary">confirmer</button>

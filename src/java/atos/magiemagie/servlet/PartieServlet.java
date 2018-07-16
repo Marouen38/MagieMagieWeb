@@ -20,4 +20,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Partie", urlPatterns = {"/Partie"})
 public class PartieServlet extends HttpServlet {
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+        req.getParameter("partie_id");
+        
+        
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+       req.setAttribute("partie_id", req);
+       req.getRequestDispatcher("partie_id").forward(req, resp);
+       
+
+
+    }
+    
+    
+
 }

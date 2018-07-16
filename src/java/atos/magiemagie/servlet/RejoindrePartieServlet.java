@@ -5,6 +5,8 @@
  */
 package atos.magiemagie.servlet;
 
+import atos.magiemagie.Joueur;
+import atos.magiemagie.servicenew.JoueurService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,11 +19,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-@WebServlet(name = "RejoindrePartie", urlPatterns = {"/RejoindrePartie"})
+@WebServlet(name = "RejoindrePartie", urlPatterns = {"/rejoindre-partie"})
 public class RejoindrePartieServlet extends HttpServlet {
 
-    
+    private JoueurService service = new JoueurService();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("rejoindre-Partie.jsp").forward(req, resp);
+        
+    }
 
     
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        long idPartie = Long.parseLong(req.getParameter("rejoindrePartie"));
+        long idJoueur = (long) req.getSession().getAttribute("JoueurID");
 
+     Joueur joueur = service.rechercherParId(idJoueur);
+     
+    }
+    
 }

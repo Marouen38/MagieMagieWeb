@@ -127,6 +127,23 @@ public class JoueurService {
         return daojoueur.rechercherParID(cibleId);
 
     }
+    public Joueur ajouterJoueur(String pseudo,String avatar){
+        Joueur joueur = new Joueur();
+        joueur.setAvatar(avatar);
+        joueur.setPseudo(pseudo);
+        daojoueur.ajouter(joueur);
+        
+        return joueur;
+    }
+    public void ajouterPartieIdAJoueur(Joueur joueur, long partieId){
+        //recupere la partie via l'ID
+        Partie partie = daopartie.rechercherParId(partieId);
+        //ajoute la partie au joueur
+        joueur.setPartie(partie);
+        //enrejister les modifications
+        daojoueur.modifier(joueur);
+        
+    }
 }
 
 

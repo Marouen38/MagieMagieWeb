@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -18,9 +19,9 @@
         </div>
     </header>
     <div class="main mainForm">
-        <form action="/action_page.php" class="titreCreerpartie">
-            <label for="name" class="labelForm">Nommez votre partie</label>
-            <input type="text" id="name" name="user_name" class="caseForm">
+        <form action="<c:url value="CreerPartie"></c:url>" method="post" class="titreCreerpartie">
+            <label for="name" class="labelForm">veillez nommer votre partie</label>
+            <input type="text" id="name" name="partieName" class="caseForm">
             <input type="submit" value="Créer" class="btnCreerForm">
         </form>
     </div>

@@ -5,6 +5,7 @@
  */
 package atos.magiemagie.servlet;
 
+import atos.magiemagie.Partie_;
 import atos.magiemagie.servicenew.PartieService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,15 +25,23 @@ public class CreerPartieServlet extends HttpServlet {
     private PartieService service = new PartieService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
         req.getRequestDispatcher("Creer-Partie.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
     
-        resp.sendRedirect("rejoindre-Partie.jsp");
+        //recuperer le nom de la partie
+        String partie =req.getParameter("partieName");
+         
+        //creer la partie
+        service.creerNouvellePartie(partie);
+        
+        //stocker l'ID de la partie en session 
+        req.getSession().setAttribute("partie_id", Partie_.id);
+        
+        //renvoie la vue rejoindre partie
+        resp.sendRedirect("rejoindre-Partie");
     
     }
 
